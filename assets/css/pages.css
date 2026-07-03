@@ -1,0 +1,468 @@
+/* ============================================================
+   Multi-page additions (P1 基盤リフォーム)
+   下層ページ・ハブ用の共通スタイル。style.css の後に読み込む。
+   ============================================================ */
+
+/* Global nav: 8 items */
+.nav-list {
+    gap: 28px;
+}
+
+.nav-list a.current {
+    color: var(--color-gold-dark);
+}
+
+.nav-list a.current::after {
+    width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .nav-list {
+        gap: 18px;
+    }
+
+    .nav-list a {
+        font-size: 0.85rem;
+    }
+}
+
+.mobile-menu.active li:nth-child(7) {
+    transition-delay: 0.7s;
+}
+
+.mobile-menu.active li:nth-child(8) {
+    transition-delay: 0.8s;
+}
+
+/* Page hero (subpage title band) */
+.page-hero {
+    background: radial-gradient(circle at 50% 50%, #1a5c3d 0%, #051f15 100%);
+    padding: calc(var(--header-height) + 90px) 20px 70px;
+    text-align: center;
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-hero::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.12) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.page-hero-en {
+    font-family: var(--font-accent);
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    position: relative;
+    z-index: 1;
+}
+
+.page-hero-lead {
+    margin-top: 20px;
+    font-size: 1rem;
+    opacity: 0.85;
+    position: relative;
+    z-index: 1;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background: var(--color-white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: 0.85rem;
+}
+
+.breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 0;
+    list-style: none;
+}
+
+.breadcrumb li:not(:last-child)::after {
+    content: '>';
+    margin-left: 8px;
+    color: var(--color-text-light);
+}
+
+.breadcrumb a {
+    color: var(--color-navy);
+}
+
+.breadcrumb a:hover {
+    color: var(--color-gold-dark);
+}
+
+.breadcrumb li:last-child {
+    color: var(--color-text-light);
+}
+
+/* Lead paragraph */
+.lead-text {
+    max-width: 860px;
+    margin: 0 auto 60px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 2.2;
+}
+
+/* Link cards (hub navigation) */
+.link-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.link-card {
+    display: block;
+    background: var(--color-white);
+    border-radius: 20px;
+    padding: 45px 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid var(--color-gold);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.link-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+.link-card .card-en {
+    font-family: var(--font-accent);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-gold-dark);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.link-card h3 {
+    font-size: 1.35rem;
+    color: var(--color-navy);
+    margin-bottom: 15px;
+}
+
+.link-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+}
+
+.link-card .card-arrow {
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+    color: var(--color-gold);
+    font-size: 1.3rem;
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover .card-arrow {
+    transform: translateX(6px);
+}
+
+/* Three-axis cards (防災 / 次世代運営 / デザイン) */
+.axis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.axis-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 50px 35px;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow);
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.axis-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.axis-card .axis-label {
+    font-family: var(--font-accent);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    color: var(--color-gold-dark);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.axis-card h3 {
+    font-size: 1.8rem;
+    color: var(--color-navy);
+    margin-bottom: 8px;
+}
+
+.axis-card .axis-sub {
+    font-size: 0.9rem;
+    color: var(--color-gold-dark);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.axis-card p {
+    font-size: 0.95rem;
+    text-align: left;
+    color: var(--color-text);
+    line-height: 2;
+}
+
+/* Content section blocks (generic subpage body) */
+.content-block {
+    max-width: 900px;
+    margin: 0 auto 80px;
+}
+
+.content-block:last-child {
+    margin-bottom: 0;
+}
+
+.content-block h3 {
+    font-size: 1.6rem;
+    color: var(--color-navy);
+    margin-bottom: 30px;
+    padding-left: 18px;
+    border-left: 5px solid var(--color-gold);
+    line-height: 1.5;
+}
+
+.content-block p {
+    margin-bottom: 20px;
+    text-align: justify;
+    line-height: 2.1;
+}
+
+/* Preparing notice (P2/P3で中身を入れる箇所の明示) */
+.preparing {
+    background: rgba(11, 59, 36, 0.04);
+    border: 2px dashed rgba(11, 59, 36, 0.2);
+    border-radius: 16px;
+    padding: 50px 30px;
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 2;
+}
+
+.preparing strong {
+    display: block;
+    color: var(--color-navy);
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+}
+
+/* Contact routing cards */
+.contact-routes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-route {
+    background: var(--color-white);
+    border-radius: 16px;
+    padding: 35px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--color-gold);
+    text-align: left;
+}
+
+.contact-route h3 {
+    font-size: 1.15rem;
+    color: var(--color-navy);
+    margin-bottom: 12px;
+}
+
+.contact-route p {
+    font-size: 0.92rem;
+    color: var(--color-text-light);
+    line-height: 1.9;
+}
+
+/* News category tags */
+.news-tag.tag-disaster {
+    background: linear-gradient(135deg, #1a5c3d, #0b3b24);
+}
+
+.news-tag.tag-media {
+    background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold));
+}
+
+/* Store disaster spec table */
+.spec-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+}
+
+.spec-table th,
+.spec-table td {
+    padding: 18px 24px;
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.spec-table tr:last-child th,
+.spec-table tr:last-child td {
+    border-bottom: none;
+}
+
+.spec-table th {
+    width: 32%;
+    color: var(--color-navy);
+    font-weight: 700;
+    background-color: rgba(11, 59, 36, 0.05);
+}
+
+/* CTA band */
+.cta-band {
+    background: radial-gradient(circle at 50% 50%, #1a5c3d 0%, #051f15 100%);
+    color: var(--color-white);
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.cta-band h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.cta-band p {
+    opacity: 0.85;
+    margin-bottom: 35px;
+}
+
+/* Store photos */
+.shop-photo img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.shop-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.shop-gallery img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Character section */
+.character-banner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.character-banner img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.character-banner p {
+    margin-top: 30px;
+    text-align: justify;
+    line-height: 2.1;
+}
+
+/* Responsive for additions */
+@media (max-width: 1024px) {
+
+    .link-cards,
+    .axis-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero {
+        padding: calc(var(--header-height) + 60px) 20px 50px;
+    }
+
+    .page-hero-title {
+        font-size: 1.9rem;
+    }
+
+    .link-cards,
+    .axis-grid,
+    .contact-routes {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .lead-text {
+        font-size: 1rem;
+        margin-bottom: 40px;
+        text-align: left;
+    }
+
+    .content-block h3 {
+        font-size: 1.3rem;
+    }
+
+    .spec-table th,
+    .spec-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .spec-table th {
+        padding: 10px 20px;
+    }
+
+    .shop-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .shop-gallery img,
+    .shop-photo img {
+        height: 220px;
+    }
+}
