@@ -948,16 +948,41 @@ a[style*="color:var(--color-gold-dark)"] {
     }
 }
 
-@media (max-width: 768px) {
+/* ============================================================
+   Hero: 店舗パース背景（moko_hero_no_text）
+   ============================================================ */
 
+.hero {
+    background:
+        radial-gradient(ellipse 70% 45% at 50% 30%, rgba(4, 18, 11, 0.45) 0%, transparent 70%),
+        linear-gradient(180deg, rgba(4, 18, 11, 0.35) 0%, transparent 25%),
+        url('/assets/img/hero-bg.jpg') center bottom / cover no-repeat,
+        radial-gradient(circle at 50% 45%, #123c27 0%, var(--emerald-abyss) 80%);
+    align-items: flex-start;
+    padding-top: max(16vh, 150px);
+}
+
+.hero::before,
+.hero::after {
+    display: none;
+}
+
+.hero .scroll-down {
+    display: none;
+}
+
+@media (max-width: 768px) {
     .hero {
         background:
-            linear-gradient(135deg, rgba(240, 233, 216, 0.95) 0% 17%, rgba(196, 154, 46, 0.9) 17% 20%, transparent 21%) no-repeat top left / 190px 190px,
-            linear-gradient(315deg, rgba(240, 233, 216, 0.95) 0% 17%, rgba(196, 154, 46, 0.9) 17% 20%, transparent 21%) no-repeat bottom right / 190px 190px,
-            linear-gradient(225deg, rgba(212, 175, 55, 0.95) 49.5%, transparent 50%) no-repeat top right / 44px 44px,
-            radial-gradient(ellipse 90% 40% at 50% 44%, rgba(56, 150, 96, 0.45) 0%, transparent 70%),
+            radial-gradient(ellipse 120% 45% at 50% 26%, rgba(4, 18, 11, 0.55) 0%, transparent 75%),
+            linear-gradient(180deg, rgba(4, 18, 11, 0.4) 0%, transparent 30%),
+            url('/assets/img/hero-bg.jpg') center bottom / cover no-repeat,
             radial-gradient(circle at 50% 45%, #123c27 0%, var(--emerald-abyss) 80%);
+        padding-top: max(14vh, 120px);
     }
+}
+
+@media (max-width: 768px) {
 
     .bg-white,
     .philosophy {
