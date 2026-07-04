@@ -350,10 +350,15 @@ body {
 
 .link-card.has-photo img {
     width: 100%;
-    height: 190px;
+    height: 260px;
     object-fit: cover;
-    object-position: center 28%;
+    object-position: center 32%;
     display: block;
+}
+
+/* 代表写真は顔が収まる位置に */
+.link-card.has-photo img[src*="representative"] {
+    object-position: center 50%;
 }
 
 .link-card.has-photo .card-body {
@@ -1215,7 +1220,7 @@ body {
     }
 
     .link-card.has-photo img {
-        height: 160px;
+        height: 240px;
     }
 
     .news-filter button {
