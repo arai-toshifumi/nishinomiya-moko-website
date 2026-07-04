@@ -1167,14 +1167,23 @@ body {
     }
 
     .hero {
-        min-height: 480px;
-        height: 74vh;
+        min-height: 560px;
+        height: 82vh;
         background:
-            linear-gradient(160deg, var(--emerald-deep) 0%, rgba(11, 36, 24, 0.82) 42%, rgba(11, 36, 24, 0.28) 75%, rgba(11, 36, 24, 0.55) 100%),
+            linear-gradient(180deg, rgba(11, 36, 24, 0.94) 0%, rgba(11, 36, 24, 0.8) 32%, rgba(11, 36, 24, 0.35) 55%, rgba(11, 36, 24, 0) 78%),
             url('/assets/img/hero-bg.jpg') 72% bottom / cover no-repeat,
             var(--emerald-deep);
-        align-items: flex-end;
-        padding-bottom: 70px;
+        align-items: flex-start;
+        padding-top: calc(var(--header-height) + 42px);
+        padding-bottom: 0;
+    }
+
+    .hero-main {
+        font-size: 2.5rem;
+    }
+
+    .hero-desc {
+        max-width: 30em;
     }
 
     .hero-sub {
