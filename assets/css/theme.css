@@ -178,7 +178,7 @@ body {
     content: '';
     position: absolute;
     top: 50%;
-    right: max(40px, calc((100% - 1280px) / 2 + 30px));
+    right: 60px;
     transform: translateY(-50%);
     width: 250px;
     height: 215px;
