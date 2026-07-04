@@ -80,21 +80,41 @@
 
     <section class="news section-padding">
         <div class="container fade-in">
+            <div class="news-filter" role="tablist" aria-label="お知らせカテゴリ">
+                <button type="button" class="active" data-filter="all">すべて</button>
+                <button type="button" data-filter="お知らせ">お知らせ</button>
+                <button type="button" data-filter="採用">採用</button>
+            </div>
             <div class="news-list">
-                <article class="news-item">
+                <article class="news-item" data-category="採用">
                     <span class="news-date">2026.07.04</span>
-                    <span class="news-tag">採用</span>
+                    <span class="news-tag tag-recruit">採用</span>
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSfBX6XKcK4sHBQhFaX_BAPsFM7apAt7GVTY-5OAjxQo-MxkJg/viewform"
                         target="_blank" rel="noopener noreferrer" class="news-title">正社員・アルバイトスタッフを募集しています</a>
                 </article>
-                <article class="news-item">
+                <article class="news-item" data-category="お知らせ">
                     <span class="news-date">2026.07.01</span>
                     <span class="news-tag">お知らせ</span>
                     <span class="news-title">コーポレートサイトを公開しました</span>
                 </article>
             </div>
+            <div class="pagination">
+                <span class="page-current">1</span>
+            </div>
         </div>
     </section>
+    <script>
+        document.querySelectorAll('.news-filter button').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.news-filter button').forEach(function (b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                var f = btn.dataset.filter;
+                document.querySelectorAll('.news-item').forEach(function (item) {
+                    item.style.display = (f === 'all' || item.dataset.category === f) ? '' : 'none';
+                });
+            });
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
