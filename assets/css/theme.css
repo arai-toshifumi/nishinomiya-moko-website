@@ -173,16 +173,17 @@ body {
     overflow: hidden;
 }
 
-/* clover watermark */
+/* corporate logo (right side) */
 .page-hero::after {
     content: '';
     position: absolute;
     top: 50%;
-    right: -70px;
+    right: max(40px, calc((100% - 1280px) / 2 + 30px));
     transform: translateY(-50%);
-    width: 460px;
-    height: 460px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="38" cy="38" r="21"/><circle cx="62" cy="38" r="21"/><circle cx="38" cy="62" r="21"/><circle cx="62" cy="62" r="21"/><circle cx="50" cy="50" r="16"/></g></svg>') center / contain no-repeat;
+    width: 250px;
+    height: 215px;
+    background: url('/assets/img/logo-mark.png') center / contain no-repeat;
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
     pointer-events: none;
 }
 
@@ -1156,9 +1157,13 @@ body {
     }
 
     .page-hero::after {
-        width: 300px;
-        height: 300px;
-        right: -90px;
+        width: 120px;
+        height: 104px;
+        right: 20px;
+        top: auto;
+        bottom: 26px;
+        transform: none;
+        opacity: 0.75;
     }
 
     .section-title {
