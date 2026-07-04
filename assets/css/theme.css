@@ -976,7 +976,8 @@ a[style*="color:var(--color-gold-dark)"] {
         background:
             radial-gradient(ellipse 120% 45% at 50% 26%, rgba(4, 18, 11, 0.55) 0%, transparent 75%),
             linear-gradient(180deg, rgba(4, 18, 11, 0.4) 0%, transparent 30%),
-            url('/assets/img/hero-bg.jpg') center bottom / cover no-repeat,
+            /* スマホは横長画像の中央(空)ではなく右側の店舗パースを見せる */
+            url('/assets/img/hero-bg.jpg') 72% bottom / cover no-repeat,
             radial-gradient(circle at 50% 45%, #123c27 0%, var(--emerald-abyss) 80%);
         padding-top: max(14vh, 120px);
     }
