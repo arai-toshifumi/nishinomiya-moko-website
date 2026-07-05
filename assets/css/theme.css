@@ -177,7 +177,7 @@ body {
 .page-hero::after {
     content: '';
     position: absolute;
-    top: 50%;
+    top: calc(50% + 45px);
     left: auto;
     right: 60px;
     transform: translateY(-50%);
