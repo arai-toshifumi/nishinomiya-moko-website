@@ -1243,3 +1243,26 @@ body {
         font-size: 0.85rem;
     }
 }
+
+/* ===== MVV renewal (2026-07) ===== */
+.mvv-band { background: #003018; color: #f4f1e8; padding: 110px 20px 100px; text-align: center; }
+.mvv-eyebrow { color: #d5b75f; letter-spacing: 0.3em; font-size: 0.78rem; text-transform: uppercase; margin: 0 0 30px; }
+.mvv-title { font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: 0.14em; color: #ffffff; margin: 0; }
+.mvv-title::after { content: ''; display: block; width: 56px; height: 2px; background: #d5b75f; margin: 28px auto 0; }
+.mvv-purpose { font-family: 'Shippori Mincho', serif; font-size: clamp(1.05rem, 2.4vw, 1.45rem); letter-spacing: 0.14em; margin: 30px 0 0; }
+.mvv-vision-sub { color: #d5b75f; font-size: 0.95rem; letter-spacing: 0.24em; margin: 62px 0 36px; }
+.mvv-trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1020px; margin: 0 auto; }
+.mvv-trust-card { border: 1px solid rgba(213, 183, 95, 0.45); background: rgba(255, 255, 255, 0.04); padding: 36px 28px; text-align: left; }
+.mvv-trust-card h3 { color: #d5b75f; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.1em; margin: 0 0 16px; }
+.mvv-trust-card p { margin: 0; font-size: 0.92rem; line-height: 2; opacity: 0.94; }
+.mvv-values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; max-width: 960px; margin: 50px auto 0; }
+.mvv-value-card { background: #ffffff; border: 1px solid #e5e1d4; border-top: 3px solid #d5b75f; padding: 38px 34px 34px; }
+.mvv-value-num { display: block; color: #d5b75f; font-family: 'Shippori Mincho', serif; letter-spacing: 0.22em; font-size: 0.85rem; }
+.mvv-value-card h3 { color: #003018; font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.22rem; letter-spacing: 0.08em; margin: 12px 0 18px; padding-bottom: 14px; border-bottom: 1px solid rgba(213, 183, 95, 0.5); }
+.mvv-value-card p { margin: 0; font-size: 0.93rem; line-height: 2.05; }
+@media (max-width: 768px) {
+    .mvv-band { padding: 78px 18px 70px; }
+    .mvv-vision-sub { margin: 48px 0 28px; }
+    .mvv-trust-grid { grid-template-columns: 1fr; }
+    .mvv-values-grid { grid-template-columns: 1fr; }
+}
