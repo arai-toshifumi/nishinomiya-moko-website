@@ -1348,3 +1348,12 @@ body {
     .career-step:nth-child(3) { margin-left: 0; }
     .career-step { flex-direction: column; align-items: flex-start; gap: 4px; }
 }
+
+.voice-photo-note {
+    max-width: 980px;
+    margin: 14px auto 0;
+    text-align: right;
+    font-size: 0.68rem;
+    color: #9aa39c;
+    letter-spacing: 0.04em;
+}
