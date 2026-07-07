@@ -1172,6 +1172,13 @@ body {
         opacity: 0.75;
     }
 
+    /* サブタイトルはロゴ手前で折り返し、重なりを防ぐ */
+    .page-hero-lead {
+        position: relative;
+        z-index: 1;
+        padding-right: 150px;
+    }
+
     .section-title {
         font-size: 1.75rem;
         margin-bottom: 46px;
