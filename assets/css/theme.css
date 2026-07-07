@@ -1357,3 +1357,15 @@ body {
     color: #9aa39c;
     letter-spacing: 0.04em;
 }
+
+/* 理念ページの代表写真を控えめに (2026-07) */
+.message-photo {
+    flex: 0 0 300px;
+}
+
+@media (max-width: 768px) {
+    .message-photo {
+        max-width: 260px;
+        margin: 0 auto;
+    }
+}
