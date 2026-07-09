@@ -1155,7 +1155,8 @@ body {
 
 @media (max-width: 768px) {
     .page-hero {
-        padding: calc(var(--header-height) + 55px) 24px 46px;
+        /* 下部にロゴ専用の帯を確保し、テキストは全幅を使う */
+        padding: calc(var(--header-height) + 55px) 24px 148px;
     }
 
     .page-hero-title {
@@ -1172,11 +1173,10 @@ body {
         opacity: 0.75;
     }
 
-    /* サブタイトルはロゴ手前で折り返し、重なりを防ぐ */
+    /* サブタイトルは全幅を使用（ロゴは下部の専用帯に配置） */
     .page-hero-lead {
         position: relative;
         z-index: 1;
-        padding-right: 150px;
     }
 
     .section-title {
@@ -1374,5 +1374,20 @@ body {
     .message-photo {
         max-width: 260px;
         margin: 0 auto;
+    }
+}
+
+/* サブタイトルのスマホ専用改行（PCでは非表示・改行位置の句読点はスマホで非表示） */
+.lead-br {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .lead-br {
+        display: inline;
+    }
+
+    .lead-cut {
+        display: none;
     }
 }
