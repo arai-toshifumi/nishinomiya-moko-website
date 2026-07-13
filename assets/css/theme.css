@@ -1563,3 +1563,33 @@ body {
         padding-top: 36px;
     }
 }
+
+/* ===== 理念: Valuesも同一トーンの帯に (2026-07) ===== */
+.mvv-values-band {
+    padding-top: 0;
+}
+
+.mvv-values-band .mvv-block-first {
+    margin-top: 0;
+}
+
+.mvv-values-band .mvv-values-grid {
+    margin-top: 40px;
+}
+
+.mvv-values-band .mvv-value-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(213, 183, 95, 0.45);
+    border-top: 3px solid #d5b75f;
+    text-align: left;
+}
+
+.mvv-values-band .mvv-value-card h3 {
+    color: #d5b75f;
+    border-bottom-color: rgba(213, 183, 95, 0.4);
+}
+
+.mvv-values-band .mvv-value-card p {
+    color: #f4f1e8;
+    opacity: 0.94;
+}
