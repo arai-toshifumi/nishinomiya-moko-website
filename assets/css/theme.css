@@ -1472,3 +1472,20 @@ body {
         font-size: 0.7rem;
     }
 }
+
+/* ===== 採用: 上部エントリーCTA (2026-07) ===== */
+.recruit-entry-top {
+    padding: 46px 20px 10px;
+}
+
+.recruit-entry-top .btn-entry {
+    display: inline-block;
+    max-width: 100%;
+}
+
+.entry-top-note {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    letter-spacing: 0.04em;
+}
