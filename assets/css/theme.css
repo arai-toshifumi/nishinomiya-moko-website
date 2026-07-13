@@ -1503,3 +1503,7 @@ body {
     border-color: var(--gold);
     color: var(--emerald-deep);
 }
+
+.btn-entry {
+    line-height: 1.6;
+}
