@@ -1507,3 +1507,13 @@ body {
 .btn-entry {
     line-height: 1.6;
 }
+
+/* Purpose説明文（理念ページ・帯内） */
+.mvv-purpose-desc {
+    max-width: 760px;
+    margin: 26px auto 0;
+    font-size: 0.92rem;
+    line-height: 2.1;
+    opacity: 0.9;
+    text-align: left;
+}
