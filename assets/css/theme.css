@@ -1517,3 +1517,41 @@ body {
     opacity: 0.9;
     text-align: left;
 }
+
+/* ===== 理念: Purpose/Vision 分離ブロック (2026-07) ===== */
+.mvv-block {
+    max-width: 900px;
+    margin: 64px auto 0;
+    padding-top: 48px;
+    border-top: 1px solid rgba(213, 183, 95, 0.35);
+}
+
+.mvv-block-label {
+    color: #d5b75f;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    margin: 0 0 22px;
+}
+
+.mvv-block-label span {
+    display: inline-block;
+    margin-left: 14px;
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    opacity: 0.85;
+    color: #f4f1e8;
+}
+
+.mvv-block .mvv-trust-grid {
+    margin-top: 34px;
+}
+
+@media (max-width: 768px) {
+    .mvv-block {
+        margin-top: 48px;
+        padding-top: 36px;
+    }
+}
