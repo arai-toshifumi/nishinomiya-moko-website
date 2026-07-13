@@ -1593,3 +1593,9 @@ body {
     color: #f4f1e8;
     opacity: 0.94;
 }
+
+/* ヒーローの社名を少し大きく (2026-07) */
+.hero-desc {
+    font-size: 1.25rem;
+    letter-spacing: 0.14em;
+}
