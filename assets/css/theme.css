@@ -1489,3 +1489,17 @@ body {
     color: var(--color-text-light);
     letter-spacing: 0.04em;
 }
+
+/* 上部エントリーCTAを最下部と同じ配色に（緑地×金文字） */
+.recruit-entry-top .btn-entry {
+    background: var(--emerald);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    box-shadow: 0 6px 20px rgba(11, 36, 24, 0.25);
+}
+
+.recruit-entry-top .btn-entry:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--emerald-deep);
+}
