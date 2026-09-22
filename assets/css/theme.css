@@ -56,6 +56,12 @@ body {
     pointer-events: none;
 }
 
+/* 画像背景にした帯（題字帯・CTA帯）にはファセット模様を重ねない */
+.page-hero::before,
+.cta-band::before {
+    display: none;
+}
+
 /* ---------- Header (white / solid) ---------- */
 
 .header {
@@ -165,7 +171,8 @@ body {
 /* ---------- Page hero (subpages) ---------- */
 
 .page-hero {
-    background: linear-gradient(135deg, #0e2f1e 0%, var(--emerald-deep) 65%);
+    /* 2026-09: 題字帯の背景を「斜めガラスパネル×金ライン」のビジュアルに変更 */
+    background: url('/assets/img/band-page-hero.webp') center / cover no-repeat, var(--emerald-deep);
     text-align: left;
     padding: calc(var(--header-height) + 80px) 30px 64px;
     padding-left: max(30px, calc((100% - 1280px) / 2 + 30px));
@@ -1074,7 +1081,8 @@ body {
 /* ---------- CTA band / Footer ---------- */
 
 .cta-band {
-    background: var(--emerald-deep);
+    /* 2026-09: CTA帯の背景を「金ラインの額縁」ビジュアルに変更 */
+    background: url('/assets/img/band-cta.webp') center / cover no-repeat, var(--emerald-deep);
     padding: 100px 20px;
 }
 
