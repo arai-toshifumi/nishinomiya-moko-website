@@ -69,7 +69,10 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <div class="logo"><a href="/"><img width="240" height="240" src="/assets/img/logo.webp" alt="株式会社西宮モコ"></a></div>
+            <div class="logo"><a href="/"><img width="240" height="240" src="/assets/img/logo.webp" alt="株式会社西宮モコ"></a>
+                <!-- 公式Xボタン（公開予約 x500 に連動。日時は /assets/js/main.js の PUBLISH_SCHEDULE で管理） -->
+                <a class="x-link" href="https://x.com/mokosuzurandai" target="_blank" rel="noopener noreferrer" aria-label="Xで最新情報（モコ鈴蘭台の公式X・新しいタブで開く）" hidden data-publish="x500"><svg class="x-link-logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span class="x-link-text">Xで最新情報</span></a>
+            </div>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="/">TOP PAGE</a></li>
@@ -98,6 +101,7 @@
                 <li><a href="/recruit/">採用情報</a></li>
                 <li><a href="/news/">お知らせ</a></li>
                 <li><a href="/contact/">お問い合わせ</a></li>
+                <li hidden data-publish="x500"><a href="https://x.com/mokosuzurandai" target="_blank" rel="noopener noreferrer">Xで最新情報</a></li>
             </ul>
         </div>
     </header>
@@ -109,9 +113,9 @@
             <p class="hero-sub">‐遊ぶ人の日常を信頼で支える‐</p>
             <p class="hero-desc">株式会社西宮モコ</p>
         </div>
-        <!-- 新着ポップ（公開予約）: data-publish-at に ISO形式の日時（例 2026-10-10T12:00:00+09:00）を入れると、
+        <!-- 新着ポップ（公開予約）: 日時は /assets/js/main.js の PUBLISH_SCHEDULE.x500 で管理。
              その時刻以降に自動で表示される。空欄のあいだは非表示。文言は news-pop-text を編集 -->
-        <a class="news-pop" href="/news/#news-x500" hidden data-publish-at="">
+        <a class="news-pop" href="/news/#news-x500" hidden data-publish="x500">
             <span class="news-pop-label">NEWS</span>
             <span class="news-pop-text">モコ鈴蘭台のXフォロワー500人達成。感謝を込めてPR動画を公開しました</span>
             <span class="news-pop-arrow" aria-hidden="true">→</span>
@@ -231,8 +235,8 @@
         <div class="container fade-in">
             <h2 class="section-title">News <span class="subtitle">お知らせ</span></h2>
             <div class="news-list">
-                <!-- 公開予約: data-publish-at を設定すると自動表示。news-date は公開日時から自動で入る -->
-                <article class="news-item" hidden data-publish-at="">
+                <!-- 公開予約: 日時は main.js の PUBLISH_SCHEDULE.x500。news-date は公開日時から自動で入る -->
+                <article class="news-item" hidden data-publish="x500">
                     <span class="news-date" data-auto-date></span>
                     <span class="news-tag">お知らせ</span>
                     <a href="/news/#news-x500" class="news-title">モコ鈴蘭台のXフォロワー500人達成。感謝を込めてPR動画を公開</a>

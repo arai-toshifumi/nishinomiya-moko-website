@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 公開予約: data-publish-at（ISO 8601, 例 2026-10-10T12:00:00+09:00）が現在時刻以前なら表示する。
-    // 空欄・未来の日時のあいだは hidden のまま。内側の [data-auto-date] には公開日を YYYY.MM.DD で入れる。
-    document.querySelectorAll('[data-publish-at]').forEach(el => {
-        const at = Date.parse(el.dataset.publishAt || '');
+    // ---- 公開予約 ----
+    // 日時（ISO 8601。日本時間は末尾 +09:00、例 '2026-10-10T12:00:00+09:00'）をここで一括管理する。
+    // 空文字のあいだは該当要素（hidden data-publish="キー"）を非表示のまま、日時以降に自動で表示する。
+    // 内側の [data-auto-date] には公開日を YYYY.MM.DD で入れる。
+    const PUBLISH_SCHEDULE = {
+        x500: ''   // Xフォロワー500人達成のお知らせ・トップの新着ポップ・ヘッダーのXボタン
+    };
+    document.querySelectorAll('[data-publish], [data-publish-at]').forEach(el => {
+        const key = el.dataset.publish;
+        const at = Date.parse((key ? PUBLISH_SCHEDULE[key] : el.dataset.publishAt) || '');
         if (Number.isNaN(at) || at > Date.now()) return;
         el.querySelectorAll('[data-auto-date]').forEach(d => {
             d.textContent = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' })

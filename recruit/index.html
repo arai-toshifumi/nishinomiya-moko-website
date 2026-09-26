@@ -85,7 +85,10 @@
     <!-- Header -->
     <header class="header">
         <div class="header-container">
-            <div class="logo"><a href="/"><img width="240" height="240" src="/assets/img/logo.webp" alt="株式会社西宮モコ"></a></div>
+            <div class="logo"><a href="/"><img width="240" height="240" src="/assets/img/logo.webp" alt="株式会社西宮モコ"></a>
+                <!-- 公式Xボタン（公開予約 x500 に連動。日時は /assets/js/main.js の PUBLISH_SCHEDULE で管理） -->
+                <a class="x-link" href="https://x.com/mokosuzurandai" target="_blank" rel="noopener noreferrer" aria-label="Xで最新情報（モコ鈴蘭台の公式X・新しいタブで開く）" hidden data-publish="x500"><svg class="x-link-logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span class="x-link-text">Xで最新情報</span></a>
+            </div>
             <nav class="nav">
                 <ul class="nav-list">
                     <li><a href="/">TOP PAGE</a></li>
@@ -112,6 +115,7 @@
                 <li><a href="/recruit/">採用情報</a></li>
                 <li><a href="/news/">お知らせ</a></li>
                 <li><a href="/contact/">お問い合わせ</a></li>
+                <li hidden data-publish="x500"><a href="https://x.com/mokosuzurandai" target="_blank" rel="noopener noreferrer">Xで最新情報</a></li>
             </ul>
         </div>
     </header>

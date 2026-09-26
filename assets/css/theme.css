@@ -1783,3 +1783,73 @@ body {
         font-size: 1.25rem;
     }
 }
+
+/* ---------- ヘッダーの公式Xボタン（ロゴの右） ---------- */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.header .x-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 150px;
+    height: 44px;
+    padding: 0 6px 0 4px;
+    background: url('/assets/img/x-link-pill.png') center / 100% 100% no-repeat;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.header .x-link:hover {
+    transform: translateY(-1px);
+    filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.45));
+}
+
+.x-link-logo {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+    flex: none;
+}
+
+@media (max-width: 1199px) {
+    /* ナビとの余白が足りない幅はアイコンのみ */
+    .header .x-link {
+        width: 44px;
+        padding: 0;
+        gap: 0;
+        background-image: url('/assets/img/x-link-square.png');
+    }
+
+    .x-link-text {
+        display: none;
+    }
+
+    .x-link-logo {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        gap: 14px;
+    }
+
+    .header .x-link {
+        width: 40px;
+        height: 40px;
+    }
+}
