@@ -1625,3 +1625,161 @@ body {
     font-size: 1.25rem;
     letter-spacing: 0.14em;
 }
+
+/* ---------- 公開予約で隠す要素（hidden 属性を確実に効かせる） ---------- */
+
+[hidden] {
+    display: none !important;
+}
+
+/* ---------- 新着ポップ（トップのヒーロー右上） ---------- */
+
+.news-pop {
+    position: absolute;
+    z-index: 3;
+    top: 24px;
+    right: max(30px, calc((100% - 1280px) / 2 + 30px));
+    width: 380px;
+    max-width: calc(100% - 60px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: rgba(11, 36, 24, 0.72);
+    border: 1px solid var(--gold-line);
+    border-radius: 8px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.news-pop:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+}
+
+.news-pop-label {
+    font-family: var(--font-accent);
+    color: var(--gold);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    flex: none;
+}
+
+.news-pop-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.news-pop-arrow {
+    color: var(--gold);
+    flex: none;
+    transition: transform 0.3s ease;
+}
+
+.news-pop:hover .news-pop-arrow {
+    transform: translateX(4px);
+}
+
+@media (max-width: 1199px) {
+    .news-pop {
+        width: 340px;
+        top: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .news-pop {
+        top: calc(var(--header-height) + 12px);
+        left: 16px;
+        right: 16px;
+        width: auto;
+        max-width: none;
+        padding: 10px 14px;
+    }
+
+    /* ポップが表示中は見出しを下にずらして重なりを避ける */
+    .hero:has(.news-pop:not([hidden])) {
+        padding-top: calc(var(--header-height) + 42px + 76px);
+    }
+}
+
+/* ---------- 注目のお知らせ（お知らせページの本文付き記事） ---------- */
+
+.news-feature {
+    max-width: 900px;
+    margin: 0 auto 56px;
+    padding: 40px 36px;
+    background: #ffffff;
+    border: 1px solid var(--paper-line);
+    border-top: 3px solid var(--gold);
+    border-radius: 8px;
+    box-shadow: var(--glass-shadow);
+    scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.news-feature-head {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 14px;
+}
+
+.news-feature-title {
+    font-family: var(--font-serif-jp);
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: var(--emerald);
+    margin-bottom: 22px;
+}
+
+.news-feature-body p {
+    line-height: 2;
+    margin-bottom: 1.2em;
+    color: var(--color-text);
+}
+
+.news-feature-video {
+    margin: 8px 0 24px;
+}
+
+.news-feature-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+    background: #000;
+}
+
+.news-feature-message {
+    font-family: var(--font-serif-jp);
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    color: var(--emerald);
+    text-align: center;
+    padding: 18px 0;
+    border-top: 1px solid var(--gold-line);
+    border-bottom: 1px solid var(--gold-line);
+}
+
+.news-feature-cta {
+    text-align: center;
+    margin-top: 28px;
+}
+
+@media (max-width: 768px) {
+    .news-feature {
+        padding: 28px 20px;
+    }
+
+    .news-feature-title {
+        font-size: 1.25rem;
+    }
+}

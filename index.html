@@ -109,6 +109,13 @@
             <p class="hero-sub">‐遊ぶ人の日常を信頼で支える‐</p>
             <p class="hero-desc">株式会社西宮モコ</p>
         </div>
+        <!-- 新着ポップ（公開予約）: data-publish-at に ISO形式の日時（例 2026-10-10T12:00:00+09:00）を入れると、
+             その時刻以降に自動で表示される。空欄のあいだは非表示。文言は news-pop-text を編集 -->
+        <a class="news-pop" href="/news/#news-x500" hidden data-publish-at="">
+            <span class="news-pop-label">NEWS</span>
+            <span class="news-pop-text">モコ鈴蘭台のXフォロワー500人達成。感謝を込めてPR動画を公開しました</span>
+            <span class="news-pop-arrow" aria-hidden="true">→</span>
+        </a>
         <div class="scroll-down">
             <span>Scroll</span>
             <div class="arrow"></div>
@@ -224,6 +231,12 @@
         <div class="container fade-in">
             <h2 class="section-title">News <span class="subtitle">お知らせ</span></h2>
             <div class="news-list">
+                <!-- 公開予約: data-publish-at を設定すると自動表示。news-date は公開日時から自動で入る -->
+                <article class="news-item" hidden data-publish-at="">
+                    <span class="news-date" data-auto-date></span>
+                    <span class="news-tag">お知らせ</span>
+                    <a href="/news/#news-x500" class="news-title">モコ鈴蘭台のXフォロワー500人達成。感謝を込めてPR動画を公開</a>
+                </article>
                 <article class="news-item">
                     <span class="news-date">2026.07.04</span>
                     <span class="news-tag">採用</span>

@@ -1,4 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // 公開予約: data-publish-at（ISO 8601, 例 2026-10-10T12:00:00+09:00）が現在時刻以前なら表示する。
+    // 空欄・未来の日時のあいだは hidden のまま。内側の [data-auto-date] には公開日を YYYY.MM.DD で入れる。
+    document.querySelectorAll('[data-publish-at]').forEach(el => {
+        const at = Date.parse(el.dataset.publishAt || '');
+        if (Number.isNaN(at) || at > Date.now()) return;
+        el.querySelectorAll('[data-auto-date]').forEach(d => {
+            d.textContent = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' })
+                .format(new Date(at)).replace(/\//g, '.');
+        });
+        el.hidden = false;
+    });
+
     // Hamburger Menu
     const hamburger = document.querySelector('.hamburger');
     const mobileMenu = document.querySelector('.mobile-menu');
