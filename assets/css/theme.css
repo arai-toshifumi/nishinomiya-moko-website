@@ -1844,12 +1844,35 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* スマホは PC と同じピル型（文言入り）にする */
     .logo {
-        gap: 14px;
+        gap: 12px;
     }
 
     .header .x-link {
-        width: 40px;
-        height: 40px;
+        width: 150px;
+        height: 44px;
+        padding: 0 6px 0 4px;
+        gap: 8px;
+        background-image: url('/assets/img/x-link-pill.png');
     }
+
+    .x-link-text {
+        display: inline;
+    }
+
+    .x-link-logo {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* ---------- トップページの動画紹介（お知らせ記事の差し込み） ---------- */
+
+.news-feature-top {
+    background: var(--color-gray);
+}
+
+.news-feature-top .news-feature {
+    margin-bottom: 0;
 }
