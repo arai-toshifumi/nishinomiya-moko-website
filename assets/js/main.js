@@ -4,18 +4,112 @@ document.addEventListener('DOMContentLoaded', () => {
     // 空文字のあいだは該当要素（hidden data-publish="キー"）を非表示のまま、日時以降に自動で表示する。
     // 内側の [data-auto-date] には公開日を YYYY.MM.DD で入れる。
     const PUBLISH_SCHEDULE = {
-        x500: '2026-09-28T20:30:00+09:00'   // Xフォロワー500人達成のお知らせ・トップの新着ポップ・ヘッダーのXボタン
+        x500: '2026-09-28T20:30:00+09:00'   // Xフォロワー500人達成のお知らせ（記事・一覧の行）・ヘッダーのXボタン
     };
-    document.querySelectorAll('[data-publish], [data-publish-at]').forEach(el => {
-        const key = el.dataset.publish;
-        const at = Date.parse((key ? PUBLISH_SCHEDULE[key] : el.dataset.publishAt) || '');
-        if (Number.isNaN(at) || at > Date.now()) return;
-        el.querySelectorAll('[data-auto-date]').forEach(d => {
-            d.textContent = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' })
-                .format(new Date(at)).replace(/\//g, '.');
+    const applyPublishGate = (root) => {
+        root.querySelectorAll('[data-publish], [data-publish-at]').forEach(el => {
+            const key = el.dataset.publish;
+            const at = Date.parse((key ? PUBLISH_SCHEDULE[key] : el.dataset.publishAt) || '');
+            if (Number.isNaN(at) || at > Date.now()) { el.hidden = true; return; }
+            el.querySelectorAll('[data-auto-date]').forEach(d => {
+                d.textContent = new Intl.DateTimeFormat('ja-JP', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' })
+                    .format(new Date(at)).replace(/\//g, '.');
+            });
+            el.hidden = false;
         });
-        el.hidden = false;
-    });
+    };
+    applyPublishGate(document);
+
+    // ---- トップページ: お知らせページ（/news/）から最新情報を取り込む ----
+    // お知らせの編集は news/index.html だけで行えばよい。
+    //   #news-board   … ヒーロー上の新着（一覧の先頭3件。スマホはCSSで1件だけ表示）
+    //   #news-latest  … Purpose 上の最新1件（本文付きの記事 .news-feature があればそれを複製、なければ簡易カード）
+    //   [data-news-sync] … 下部の News 欄（一覧の先頭3件）
+    // 公開予約は取り込んだ内容にも同じ判定を適用する。読み込みに失敗した場合は各枠を非表示のままにする。
+    const newsBoard = document.getElementById('news-board');
+    const newsLatest = document.getElementById('news-latest');
+    const newsBottom = document.querySelector('.news-list[data-news-sync]');
+    if (newsBoard || newsLatest || newsBottom) {
+        const toSiteLink = (a) => {
+            const href = a.getAttribute('href') || '/news/';
+            return href.startsWith('#') ? '/news/' + href : href;
+        };
+        fetch('/news/', { credentials: 'same-origin' })
+            .then(r => (r.ok ? r.text() : Promise.reject(new Error('news fetch ' + r.status))))
+            .then(html => {
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                applyPublishGate(doc);
+                const rows = Array.from(doc.querySelectorAll('.news-list .news-item')).filter(el => !el.hidden);
+                if (!rows.length) return;
+                const textOf = (el, sel) => { const n = el.querySelector(sel); return n ? n.textContent.trim() : ''; };
+
+                if (newsBoard) {
+                    const list = newsBoard.querySelector('.news-board-list');
+                    rows.slice(0, 3).forEach(row => {
+                        const link = row.querySelector('a');
+                        const a = document.createElement('a');
+                        a.className = 'news-board-item';
+                        a.href = link ? toSiteLink(link) : '/news/';
+                        if (link && link.target) { a.target = link.target; a.rel = link.rel; }
+                        const date = document.createElement('span'); date.className = 'news-board-date'; date.textContent = textOf(row, '.news-date');
+                        const title = document.createElement('span'); title.className = 'news-board-title'; title.textContent = textOf(row, '.news-title');
+                        a.append(date, title);
+                        list.appendChild(a);
+                    });
+                    newsBoard.hidden = false;
+                }
+
+                if (newsLatest) {
+                    const row = rows[0];
+                    const link = row.querySelector('a');
+                    const href = link ? (link.getAttribute('href') || '') : '';
+                    const feature = href.startsWith('#') ? doc.getElementById(href.slice(1)) : null;
+                    const container = newsLatest.querySelector('.container');
+                    if (feature && feature.classList.contains('news-feature') && !feature.hidden) {
+                        const clone = feature.cloneNode(true);
+                        clone.id = 'top-' + feature.id;
+                        clone.hidden = false;
+                        clone.removeAttribute('data-publish');
+                        clone.removeAttribute('data-publish-at');
+                        clone.querySelectorAll('a[href^="#"]').forEach(a => a.setAttribute('href', '/news/' + a.getAttribute('href')));
+                        container.appendChild(clone);
+                    } else {
+                        const card = document.createElement('article');
+                        card.className = 'news-feature news-feature--compact';
+                        const head = document.createElement('div'); head.className = 'news-feature-head';
+                        const date = document.createElement('span'); date.className = 'news-date'; date.textContent = textOf(row, '.news-date');
+                        const tag = row.querySelector('.news-tag') ? row.querySelector('.news-tag').cloneNode(true) : null;
+                        head.appendChild(date); if (tag) head.appendChild(tag);
+                        const h = document.createElement('h2'); h.className = 'news-feature-title';
+                        if (link) {
+                            const a = document.createElement('a'); a.href = toSiteLink(link); a.textContent = textOf(row, '.news-title');
+                            if (link.target) { a.target = link.target; a.rel = link.rel; }
+                            h.appendChild(a);
+                        } else {
+                            h.textContent = textOf(row, '.news-title');
+                        }
+                        const more = document.createElement('p'); more.className = 'news-feature-cta';
+                        const moreLink = document.createElement('a'); moreLink.className = 'btn-map'; moreLink.href = '/news/'; moreLink.textContent = 'お知らせ一覧へ';
+                        more.appendChild(moreLink);
+                        card.append(head, h, more);
+                        container.appendChild(card);
+                    }
+                    newsLatest.hidden = false;
+                }
+
+                if (newsBottom) {
+                    rows.slice(0, 3).forEach(row => {
+                        const c = row.cloneNode(true);
+                        c.hidden = false;
+                        c.removeAttribute('data-publish');
+                        c.removeAttribute('data-publish-at');
+                        c.querySelectorAll('a[href^="#"]').forEach(a => a.setAttribute('href', '/news/' + a.getAttribute('href')));
+                        newsBottom.appendChild(c);
+                    });
+                }
+            })
+            .catch(() => { /* 取り込めない場合は枠を非表示のままにする */ });
+    }
 
     // Hamburger Menu
     const hamburger = document.querySelector('.hamburger');
