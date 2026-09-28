@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 空文字のあいだは該当要素（hidden data-publish="キー"）を非表示のまま、日時以降に自動で表示する。
     // 内側の [data-auto-date] には公開日を YYYY.MM.DD で入れる。
     const PUBLISH_SCHEDULE = {
-        x500: ''   // Xフォロワー500人達成のお知らせ・トップの新着ポップ・ヘッダーのXボタン
+        x500: '2026-09-28T20:30:00+09:00'   // Xフォロワー500人達成のお知らせ・トップの新着ポップ・ヘッダーのXボタン
     };
     document.querySelectorAll('[data-publish], [data-publish-at]').forEach(el => {
         const key = el.dataset.publish;
