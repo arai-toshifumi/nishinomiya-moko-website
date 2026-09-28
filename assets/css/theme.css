@@ -170,14 +170,11 @@ body {
 /* ---------- Page hero (subpages) ---------- */
 
 .page-hero {
-    /* 2026-09-25: 題字帯の背景を MOKO 看板のビジュアルに変更（左側の見出し用に薄い暗色を重ねる） */
-    background:
-        linear-gradient(90deg, rgba(11, 36, 24, 0.55) 0%, rgba(11, 36, 24, 0.25) 45%, rgba(11, 36, 24, 0) 70%),
-        url('/assets/img/band-page-hero-moko.webp') center 65% / cover no-repeat,
-        var(--emerald-deep);
+    /* 2026-09-29: 背景を「金ラインの深緑パネル」に変更。見本に合わせ、文字は左端から約17%・
+       エンブレムは右端から約5%（幅は画面の約14%）に配置し、上下は見える範囲の中央に揃える */
+    background: url('/assets/img/band-page-hero-panel.webp') center / cover no-repeat, var(--emerald-deep);
     text-align: left;
-    padding: calc(var(--header-height) + 80px) 30px 64px;
-    padding-left: max(30px, calc((100% - 1280px) / 2 + 30px));
+    padding: calc(var(--header-height) + 110px) calc(19vw + 40px) 110px max(30px, 17vw);
     overflow: hidden;
 }
 
@@ -185,15 +182,29 @@ body {
 .page-hero::after {
     content: '';
     position: absolute;
-    top: calc(50% + 45px);
+    top: calc(50% + 45px);   /* 固定ヘッダー（90px）を除いた見える範囲の中央 */
     left: auto;
-    right: 60px;
+    right: 5vw;
     transform: translateY(-50%);
-    width: 250px;
-    height: 215px;
+    width: clamp(220px, 14vw, 300px);
+    height: auto;
+    aspect-ratio: 500 / 430;
     background: url('/assets/img/logo-mark.webp') center / contain no-repeat;
     filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
     pointer-events: none;
+}
+
+/* タブレット〜小型PC: 文字とエンブレムが重ならないよう左右の余白を詰める */
+@media (max-width: 1199px) {
+    .page-hero {
+        padding-left: max(30px, 8vw);
+        padding-right: 280px;
+    }
+
+    .page-hero::after {
+        right: 40px;
+        width: 200px;
+    }
 }
 
 .page-hero-en {
@@ -1174,11 +1185,7 @@ body {
     .page-hero {
         /* 下部にロゴ専用の帯を確保し、テキストは全幅を使う */
         padding: calc(var(--header-height) + 55px) 24px 148px;
-        /* スマホは看板と文字・エンブレムが重なるため、全体を暗めに落として文字を優先 */
-        background:
-            linear-gradient(180deg, rgba(11, 36, 24, 0.85) 0%, rgba(11, 36, 24, 0.6) 45%, rgba(11, 36, 24, 0.45) 100%),
-            url('/assets/img/band-page-hero-moko.webp') center 65% / cover no-repeat,
-            var(--emerald-deep);
+        background: url('/assets/img/band-page-hero-panel.webp') center / cover no-repeat, var(--emerald-deep);
     }
 
     .page-hero-title {
@@ -1186,13 +1193,13 @@ body {
     }
 
     .page-hero::after {
-        width: 120px;
-        height: 104px;
+        width: 140px;
+        height: 120px;
         right: 20px;
         top: auto;
-        bottom: 26px;
+        bottom: 22px;
         transform: none;
-        opacity: 0.75;
+        opacity: 1;
     }
 
     /* サブタイトルは全幅を使用（ロゴは下部の専用帯に配置） */
