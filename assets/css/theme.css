@@ -1940,3 +1940,20 @@ body {
 .news-feature--compact .news-feature-cta {
     margin-top: 18px;
 }
+
+/* ---------- 理念ページ MVV（Purpose〜Values）の背景: 金ラインの深緑パネル（縦長） ---------- */
+
+.mvv-wrap {
+    background: url('/assets/img/mvv-panel.webp') center / cover no-repeat, #003018;
+}
+
+.mvv-wrap .mvv-band {
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    /* スマホは右寄りを見せて金ラインが入るようにする */
+    .mvv-wrap {
+        background-position: 72% center;
+    }
+}
