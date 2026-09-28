@@ -1957,3 +1957,28 @@ body {
         background-position: 72% center;
     }
 }
+
+/* ---------- ページ最下部（CTA帯＋フッター）の背景: 金ラインの深緑パネル ---------- */
+
+.page-bottom {
+    background: url('/assets/img/bottom-panel.webp') center / cover no-repeat, var(--emerald-deep);
+}
+
+.page-bottom .cta-band,
+.page-bottom .recruit-entry,
+.page-bottom .footer {
+    background: transparent;
+}
+
+.page-bottom .cta-band::before,
+.page-bottom .recruit-entry::before,
+.page-bottom .footer::before {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    /* スマホは右寄りを見せて金ラインが入るようにする */
+    .page-bottom {
+        background-position: 72% center;
+    }
+}
