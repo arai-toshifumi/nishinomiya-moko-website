@@ -1638,8 +1638,8 @@ body {
     position: absolute;
     z-index: 3;
     top: 24px;
-    right: max(30px, calc((100% - 1280px) / 2 + 30px));
-    width: 440px;
+    right: 36px;          /* 画面右端近くまで寄せて幅を確保（2026-09-28 新井さん要望） */
+    width: 580px;
     max-width: calc(100% - 60px);
     padding: 12px 18px 10px;
     background: rgba(11, 36, 24, 0.72);
