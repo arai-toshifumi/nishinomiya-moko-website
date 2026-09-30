@@ -195,3 +195,55 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// ---- GA4 イベント計測（gtag が読み込めない環境では何もしない） ----
+// 主要な導線のクリックと動画の再生を、GA4 のイベントとして送る。
+//   x_link_click      … X（@mokosuzurandai）へのリンク。placement: header / mobile_menu / news_article / other
+//   news_click        … 新着ボード・お知らせ一覧・注目記事内のリンク。placement: news_board / news_list / news_feature
+//   form_click        … Google フォームへのボタン。form_type: recruit / contact
+//   contact_cta_click … 「お問い合わせ」ボタン（ヘッダー・CTA帯）
+//   tel_click         … 電話番号のタップ
+//   video_play        … PR動画の再生開始（1回のみ）
+(function () {
+    const track = (name, params) => {
+        if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+    };
+    document.addEventListener('click', (e) => {
+        const a = e.target.closest('a, button');
+        if (!a) return;
+        const href = a.getAttribute('href') || '';
+        const text = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60);
+        const base = { link_url: href, link_text: text, page_path: location.pathname };
+        if (a.classList.contains('x-link') || /^https?:\/\/(x|twitter)\.com\//.test(href)) {
+            const placement = a.classList.contains('x-link') ? 'header'
+                : a.closest('.mobile-menu') ? 'mobile_menu'
+                : a.closest('.news-feature') ? 'news_article' : 'other';
+            track('x_link_click', Object.assign({ placement }, base));
+        } else if (a.closest('.news-board')) {
+            track('news_click', Object.assign({ placement: 'news_board' }, base));
+        } else if (a.closest('.news-feature')) {
+            track('news_click', Object.assign({ placement: 'news_feature' }, base));
+        } else if (a.closest('.news-list')) {
+            track('news_click', Object.assign({ placement: 'news_list' }, base));
+        } else if (/docs\.google\.com\/forms/.test(href)) {
+            const form_type = (a.classList.contains('btn-entry') || /採用|エントリー/.test(text) || location.pathname.startsWith('/recruit/')) ? 'recruit' : 'contact';
+            track('form_click', Object.assign({ form_type }, base));
+        } else if (href.startsWith('tel:')) {
+            track('tel_click', base);
+        } else if (a.classList.contains('nav-contact') || a.classList.contains('btn-contact')) {
+            track('contact_cta_click', base);
+        }
+    }, true);
+    const hookVideo = (v) => {
+        if (v.dataset.gaHooked) return;
+        v.dataset.gaHooked = '1';
+        v.addEventListener('play', () => {
+            const src = v.currentSrc || (v.querySelector('source') || {}).src || '';
+            track('video_play', { video_url: src, page_path: location.pathname });
+        }, { once: true });
+    };
+    document.querySelectorAll('video').forEach(hookVideo);
+    // お知らせの自動取り込みなどで後から追加される動画にも対応
+    new MutationObserver(() => document.querySelectorAll('video').forEach(hookVideo))
+        .observe(document.body, { childList: true, subtree: true });
+})();
