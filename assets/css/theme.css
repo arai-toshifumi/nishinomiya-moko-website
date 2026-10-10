@@ -1350,29 +1350,82 @@ body {
     opacity: 0.92;
 }
 
-.career-next-steps {
-    display: grid;
-    gap: 12px;
+/* 年収イメージのグラフ（下2段は金額、上2段は上端フェードで金額を出さない） */
+.chart-axis {
+    margin: 0 0 6px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: #d5b75f;
+    opacity: 0.8;
 }
 
-.career-step {
+.career-chart {
+    --unit: 190px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 14px;
-    border: 1px solid rgba(213, 183, 95, 0.45);
-    border-left: 3px solid #d5b75f;
-    background: rgba(255, 255, 255, 0.04);
-    padding: 14px 20px;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 0 8px;
+    border-bottom: 1px solid rgba(213, 183, 95, 0.55);
 }
 
-.career-step:nth-child(2) { margin-left: 28px; }
-.career-step:nth-child(3) { margin-left: 56px; }
-.career-step:nth-child(4) { margin-left: 84px; }
+.chart-col {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
 
-.step-rank { font-weight: 700; letter-spacing: 0.04em; }
+.chart-value {
+    margin: 0 0 8px;
+    color: #d5b75f;
+    font-weight: 700;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    text-align: center;
+    white-space: nowrap;
+}
 
-.step-salary { color: #d5b75f; font-weight: 700; white-space: nowrap; }
+.chart-value-open {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    margin-bottom: 6px;
+}
+
+.chart-bar {
+    width: 100%;
+    max-width: 120px;
+    height: calc(var(--h) * var(--unit));
+    background: linear-gradient(to top, rgba(213, 183, 95, 0.34), rgba(213, 183, 95, 0.16));
+    border: 1px solid rgba(213, 183, 95, 0.8);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+}
+
+.is-open .chart-bar {
+    background: linear-gradient(to top, rgba(213, 183, 95, 0.34) 0%, rgba(213, 183, 95, 0.14) 45%, rgba(213, 183, 95, 0) 100%);
+    border: 0 solid;
+    border-width: 0 1px;
+    border-image: linear-gradient(to top, rgba(213, 183, 95, 0.8) 0%, rgba(213, 183, 95, 0.35) 55%, rgba(213, 183, 95, 0) 100%) 1;
+    border-radius: 0;
+}
+
+.chart-ranks {
+    display: flex;
+    gap: 16px;
+    padding: 10px 8px 0;
+}
+
+.chart-rank {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+}
 
 .career-next-note {
     font-size: 0.75rem;
@@ -1384,10 +1437,10 @@ body {
 @media (max-width: 768px) {
     .voice-grid.voice-grid-4 { grid-template-columns: 1fr; }
     .career-next { padding: 32px 22px 28px; }
-    .career-step:nth-child(2),
-    .career-step:nth-child(3),
-    .career-step:nth-child(4) { margin-left: 0; }
-    .career-step { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .career-chart { --unit: 150px; gap: 8px; padding: 0 2px; }
+    .chart-ranks { gap: 8px; padding: 8px 2px 0; }
+    .chart-value { font-size: 0.78rem; }
+    .chart-rank { font-size: 0.72rem; letter-spacing: 0; }
 }
 
 .voice-photo-note {

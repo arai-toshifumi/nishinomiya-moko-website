@@ -278,29 +278,36 @@
                 </tr>
             </table>
 
-            <!-- 役職グループ別の年収目安（出典: 役職別給与一覧 2026-10-05版。階級ごとの実額は載せず帯で示す・部長職は年収の目安のみ・経理・事務系は非掲載〔2026-10-09 新井さん指示〕） -->
+            <!-- 役職グループ別の年収イメージ（出典: 役職別給与一覧 2026-10-05版）。ホールチーフ・班長・主任は年収の幅を表示、マネージャー・部長クラスは金額を出さず棒の高さ（上限値に比例・上端はフェード）で上がり幅だけを伝える〔2026-10-10 新井さん指示〕。経理・事務系は非掲載 -->
             <div class="career-next" id="salary">
                 <h4 class="career-next-title">その先のキャリア — 幹部への道</h4>
                 <p class="career-next-lead">ホールチーフはゴールではありません。当社では現場から幹部まで、役職と年収が連動して上がる給与制度を設けています。</p>
-                <div class="career-next-steps">
-                    <div class="career-step">
-                        <span class="step-rank">ホールチーフ</span>
-                        <span class="step-salary">年収 約290万〜380万円</span>
+                <p class="chart-axis">年収の目安</p>
+                <div class="career-chart" role="img" aria-label="役職が上がるほど年収が上がるイメージ。ホールチーフは年収約290万〜380万円、班長・主任は年収約360万〜490万円、マネージャー・部長クラスはさらに上がります">
+                    <div class="chart-col">
+                        <p class="chart-value">約290万〜<br>380万円</p>
+                        <div class="chart-bar" style="--h:0.46"></div>
                     </div>
-                    <div class="career-step">
-                        <span class="step-rank">班長・主任</span>
-                        <span class="step-salary">年収 約360万〜490万円</span>
+                    <div class="chart-col">
+                        <p class="chart-value">約360万〜<br>490万円</p>
+                        <div class="chart-bar" style="--h:0.59"></div>
                     </div>
-                    <div class="career-step">
-                        <span class="step-rank">マネージャー</span>
-                        <span class="step-salary">年収 約530万〜760万円</span>
+                    <div class="chart-col is-open">
+                        <p class="chart-value chart-value-open">▲</p>
+                        <div class="chart-bar" style="--h:0.86"></div>
                     </div>
-                    <div class="career-step">
-                        <span class="step-rank">部長クラス</span>
-                        <span class="step-salary">年収 約800万円〜</span>
+                    <div class="chart-col is-open">
+                        <p class="chart-value chart-value-open">▲</p>
+                        <div class="chart-bar" style="--h:1"></div>
                     </div>
                 </div>
-                <p class="career-next-note">※年収は月額固定給（基本給・役職手当・固定残業代・固定深夜割増手当）12か月分に賞与（年2回）を加えた概算で、支給を確約するものではありません。等級・評価により決定します。<br>※上位役職は社内登用を基本としており、現在外部からの募集は行っておりません。</p>
+                <div class="chart-ranks" aria-hidden="true">
+                    <p class="chart-rank">ホールチーフ</p>
+                    <p class="chart-rank">班長・主任</p>
+                    <p class="chart-rank">マネージャー</p>
+                    <p class="chart-rank">部長クラス</p>
+                </div>
+                <p class="career-next-note">※ホールチーフ、班長・主任の年収は月額固定給（基本給・役職手当・固定残業代・固定深夜割増手当）12か月分に賞与（年2回）を加えた概算で、支給を確約するものではありません。マネージャー以上は役職・評価により決定します。<br>※上位役職は社内登用を基本としており、現在外部からの募集は行っておりません。</p>
             </div>
         </div>
     </div>
