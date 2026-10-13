@@ -188,8 +188,8 @@ body {
     transform: translateY(-50%);
     width: clamp(220px, 14vw, 300px);
     height: auto;
-    aspect-ratio: 500 / 430;
-    background: url('/assets/img/logo-mark.webp') center / contain no-repeat;
+    aspect-ratio: 1333 / 1125;
+    background: url('/assets/img/logo-mark-2026-10.webp') center / contain no-repeat;
     filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
     pointer-events: none;
 }
