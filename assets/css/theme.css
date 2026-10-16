@@ -2041,9 +2041,11 @@ body {
 /* ---------- 店舗クイックリンク帯（2026-10-16） ----------
    店舗3ページ（一覧・鈴蘭台・田尾寺）の題字帯の直下。X などから来た人が
    スマホの1画面目で P-WORLD（機種・営業情報）へ行けるようにする。
-   主ボタンは深緑地×金縁（ヘッダーの X ボタンと同じ「金はアクセント」の扱い） */
+   主ボタンは P-WORLD のロゴ入りで赤×白（2026-10-16 社長指示: 行き先が直感的に分かるように）。
+   ロゴの赤 #ce2323 は提供されたロゴ画像から採色 */
 
 .store-actions {
+    --pworld-red: #ce2323;
     background: var(--cream);
     border-bottom: 1px solid var(--paper-line);
     padding: 22px 0;
@@ -2099,41 +2101,56 @@ body {
     fill: currentColor;
 }
 
+/* 主ボタン（P-WORLD）: 上段に案内文、下段にロゴ＋「店舗ページを見る」、右端に矢印 */
 .store-action-pworld {
-    background: var(--emerald);
-    color: #ffffff;
-    border: 2px solid var(--gold);
-    padding: 10px 26px;
-    gap: 16px;
-    box-shadow: 0 6px 18px rgba(11, 59, 36, 0.22);
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+        "kicker kicker icon"
+        "logo   label  icon";
+    column-gap: 10px;
+    row-gap: 5px;
+    align-items: center;
+    text-align: left;
+    background: #ffffff;
+    color: var(--pworld-red);
+    border: 2px solid var(--pworld-red);
+    padding: 10px 20px 10px 18px;
+    box-shadow: 0 6px 18px rgba(206, 35, 35, 0.18);
 }
 
 .store-action-pworld:hover {
-    background: var(--emerald-bright);
-    color: #ffffff;
-}
-
-.store-action-text {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    text-align: left;
+    background: #fff4f4;
+    color: var(--pworld-red);
+    box-shadow: 0 10px 24px rgba(206, 35, 35, 0.28);
 }
 
 .store-action-kicker {
+    grid-area: kicker;
     font-size: 0.74rem;
     font-weight: 500;
     letter-spacing: 0.08em;
-    color: var(--gold);
+    color: var(--color-text-light);
+}
+
+.store-action-logo {
+    grid-area: logo;
+    height: 24px;
+    width: auto;
+    display: block;
 }
 
 .store-action-pworld .store-action-label {
+    grid-area: label;
     font-size: 1.05rem;
     letter-spacing: 0.06em;
+    color: var(--pworld-red);
 }
 
 .store-action-pworld .store-action-icon {
-    color: var(--gold);
+    grid-area: icon;
+    color: var(--pworld-red);
+    margin-left: 8px;
 }
 
 @media (max-width: 768px) {
@@ -2162,9 +2179,12 @@ body {
 
     .store-action-pworld {
         grid-column: 1 / -1;
-        justify-content: space-between;
         min-height: 64px;
-        padding: 10px 18px 10px 20px;
+        padding: 10px 16px 10px 16px;
+    }
+
+    .store-action-logo {
+        height: 22px;
     }
 
     .store-action-pworld .store-action-label {
