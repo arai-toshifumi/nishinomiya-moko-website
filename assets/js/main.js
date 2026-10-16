@@ -199,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ---- GA4 イベント計測（gtag が読み込めない環境では何もしない） ----
 // 主要な導線のクリックと動画の再生を、GA4 のイベントとして送る。
 //   x_link_click      … X（@mokosuzurandai）へのリンク。placement: header / mobile_menu / news_article / other
+//   pworld_click      … P-WORLD（機種・営業情報）へのリンク。store: suzurandai / taonji、placement: quick_links / store_card / spec_table / other
 //   news_click        … 新着ボード・お知らせ一覧・注目記事内のリンク。placement: news_board / news_list / news_feature
 //   form_click        … Google フォームへのボタン。form_type: recruit / contact
 //   contact_cta_click … 「お問い合わせ」ボタン（ヘッダー・CTA帯）
@@ -219,6 +220,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 : a.closest('.mobile-menu') ? 'mobile_menu'
                 : a.closest('.news-feature') ? 'news_article' : 'other';
             track('x_link_click', Object.assign({ placement }, base));
+        } else if (/p-world\.co\.jp/.test(href)) {
+            const store = /moko-suzuran/.test(href) ? 'suzurandai' : /moco-s\.htm/.test(href) ? 'taonji' : 'other';
+            const placement = a.closest('.store-actions') ? 'quick_links'
+                : a.closest('.shop-info') ? 'store_card'
+                : a.closest('.spec-table') ? 'spec_table' : 'other';
+            track('pworld_click', Object.assign({ store, placement }, base));
         } else if (a.closest('.news-board')) {
             track('news_click', Object.assign({ placement: 'news_board' }, base));
         } else if (a.closest('.news-feature')) {
