@@ -106,7 +106,34 @@
                 <button type="button" class="active" data-filter="all">すべて</button>
                 <button type="button" data-filter="お知らせ">お知らせ</button>
                 <button type="button" data-filter="採用">採用</button>
+                <button type="button" data-filter="地域・防災">地域・防災</button>
             </div>
+            <!-- 2026-10-27 掲載: AED 設置・まちかど救急ステーション登録・普通救命コース（正社員全員）。一次情報は Notion「HP掲載用資料｜AED設置・救命講習・まちかど救急ステーション」 -->
+            <article class="news-feature" id="news-aed" data-category="地域・防災">
+                <div class="news-feature-head">
+                    <span class="news-date">2026.10.27</span>
+                    <span class="news-tag tag-disaster">地域・防災</span>
+                </div>
+                <h2 class="news-feature-title">両店に AED を設置し、神戸市「まちかど救急ステーション」に登録しました</h2>
+                <div class="news-feature-body">
+                    <p>モコ鈴蘭台店・モコ田尾寺店の1階カウンターに AED（自動体外式除細動器）を設置し、2026年8月、神戸市北消防署から「まちかど救急ステーション」の標章交付を受けました。</p>
+                    <p>店内でのもしもの時だけでなく、近隣で急病の方が出たときにもお貸しします。お貸しできる時間は両店とも 9:00〜23:30 で、開店前・閉店後の時間帯も含みます。必要なときは店内のスタッフにお声がけください。</p>
+                    <div class="news-feature-figures">
+                        <figure>
+                            <img width="1200" height="900" src="/assets/img/aed-suzurandai-2026-08.webp" alt="モコ鈴蘭台店 1階ホール カウンター横のAED" loading="lazy">
+                            <figcaption>モコ鈴蘭台店（1階ホール 店内カウンター横）</figcaption>
+                        </figure>
+                        <figure>
+                            <img width="1200" height="900" src="/assets/img/aed-taonji-2026-08.webp" alt="モコ田尾寺店 1階ホール カウンターのAED" loading="lazy">
+                            <figcaption>モコ田尾寺店（1階ホール 店内カウンター）</figcaption>
+                        </figure>
+                    </div>
+                    <p>あわせて、正社員全員が神戸市消防局の市民救命士講習「普通救命コース」を受講しました。心肺蘇生法と AED の使い方を学ぶ 180 分の講習です。</p>
+                    <p>私たちは「遊ぶ人の日常を信頼で支える」を存在意義に掲げ、日常には楽しさを、有事には安心を届けるホールづくりに取り組んでいます。今回の取り組みは、その一歩です。</p>
+                    <p class="news-feature-note"><strong>緊急時はまず 119 番へ通報してください。</strong></p>
+                    <p class="news-feature-cta"><a href="/stores/" class="btn-map">店舗ごとの設置場所・お貸しできる時間を見る</a></p>
+                </div>
+            </article>
             <!-- 注目のお知らせ（公開予約）: 日時は /assets/js/main.js の PUBLISH_SCHEDULE.x500 で管理。その時刻以降に自動表示。
                  news-date は公開日時から自動で入る。空欄のあいだは非表示 -->
             <article class="news-feature" id="news-x500" data-category="お知らせ" hidden data-publish="x500">
@@ -135,6 +162,11 @@
             <!-- お知らせ一覧（新しい順）。トップページはこの一覧と上の注目記事を自動で取り込むので、編集はこのファイルだけでよい。
                  本文付きの記事は上の news-feature に置き、一覧の行からは #id でリンクする -->
             <div class="news-list">
+                <article class="news-item" data-category="地域・防災">
+                    <span class="news-date">2026.10.27</span>
+                    <span class="news-tag tag-disaster">地域・防災</span>
+                    <a href="#news-aed" class="news-title">両店に AED を設置し、神戸市「まちかど救急ステーション」に登録しました</a>
+                </article>
                 <article class="news-item" data-category="お知らせ" hidden data-publish="x500">
                     <span class="news-date" data-auto-date></span>
                     <span class="news-tag">お知らせ</span>
