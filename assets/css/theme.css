@@ -2478,3 +2478,232 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== Recruit: workstyle section (2026-11) ===== */
+.workstyle-sub {
+    font-family: var(--font-serif-jp);
+    font-weight: 500;
+    color: var(--emerald);
+    text-align: center;
+    font-size: 1.05rem;
+    margin: -28px 0 22px;
+    letter-spacing: 0.12em;
+}
+
+.workstyle-lead {
+    max-width: 780px;
+    margin: 0 auto 54px;
+    text-align: center;
+    font-size: 0.98rem;
+}
+
+.workstyle-figure {
+    max-width: 1100px;
+    margin: 0 auto 54px;
+}
+
+.workstyle-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid var(--paper-line);
+    background: var(--cream);
+}
+
+.workstyle-figure figcaption {
+    text-align: center;
+    font-size: 0.84rem;
+    color: var(--color-text-light);
+    margin-top: 12px;
+}
+
+.workstyle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.workstyle-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 24px;
+}
+
+.workstyle-card {
+    background: #ffffff;
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(28, 42, 34, 0.05);
+    padding: 30px 26px 28px;
+}
+
+.workstyle-card-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.workstyle-ico {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--emerald);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.workstyle-ico svg {
+    width: 24px;
+    height: 24px;
+}
+
+.workstyle-cat {
+    font-family: var(--font-serif-jp);
+    font-weight: 600;
+    font-size: 1.08rem;
+    color: var(--emerald);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.workstyle-tool {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--gold-dark);
+    margin: 2px 0 0;
+}
+
+.workstyle-desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin: 14px 0 0;
+}
+
+.workstyle-merit {
+    background: var(--cream);
+    border-top: 2px solid var(--gold);
+    border-radius: 0 0 10px 10px;
+    padding: 38px 42px 34px;
+    margin-top: 48px;
+}
+
+.workstyle-merit h4 {
+    font-family: var(--font-serif-jp);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--emerald);
+    margin: 0 0 22px;
+    text-align: center;
+}
+
+.workstyle-merit-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 36px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.workstyle-merit-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 0.93rem;
+    line-height: 1.75;
+}
+
+.workstyle-chk {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--emerald);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.workstyle-note {
+    text-align: center;
+    font-size: 0.86rem;
+    color: var(--color-text-light);
+    margin: 22px 0 0;
+}
+
+.workstyle-tm {
+    text-align: center;
+    font-size: 0.7rem;
+    color: #9aa39c;
+    margin: 40px 0 0;
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+    .workstyle-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .workstyle-sub {
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        margin-top: -22px;
+    }
+
+    .workstyle-lead {
+        text-align: left;
+        font-size: 0.92rem;
+        margin-bottom: 36px;
+    }
+
+    .workstyle-figure {
+        margin-bottom: 36px;
+    }
+
+    .workstyle-figure figcaption {
+        text-align: left;
+        font-size: 0.8rem;
+    }
+
+    .workstyle-grid,
+    .workstyle-grid--2 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .workstyle-grid--2 {
+        margin-top: 16px;
+    }
+
+    .workstyle-card {
+        padding: 24px 20px 22px;
+    }
+
+    .workstyle-merit {
+        padding: 28px 20px 24px;
+        margin-top: 36px;
+    }
+
+    .workstyle-merit-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .workstyle-note {
+        text-align: left;
+        font-size: 0.82rem;
+    }
+
+    .workstyle-tm {
+        text-align: left;
+        font-size: 0.66rem;
+        margin-top: 32px;
+    }
+}
