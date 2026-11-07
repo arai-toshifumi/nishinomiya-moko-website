@@ -2712,3 +2712,72 @@ body {
         margin-top: 32px;
     }
 }
+
+/* ===== Recruit: workstyle details + entry links (2026-11-07) ===== */
+.workstyle-more {
+    margin-top: 12px;
+    font-size: 0.86rem;
+}
+
+.workstyle-more summary {
+    cursor: pointer;
+    color: var(--emerald);
+    font-weight: 700;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.workstyle-more summary::-webkit-details-marker {
+    display: none;
+}
+
+.workstyle-more summary::before {
+    content: '+';
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold-dark);
+    font-size: 0.8rem;
+    line-height: 1;
+}
+
+.workstyle-more[open] summary::before {
+    content: '\2212';
+}
+
+.workstyle-more p {
+    margin: 8px 0 0;
+    line-height: 1.75;
+    color: var(--color-text);
+}
+
+.entry-top-links {
+    margin: 14px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.entry-top-links a {
+    display: inline-block;
+    padding: 9px 18px;
+    border: 1px solid var(--emerald);
+    border-radius: 999px;
+    color: var(--emerald);
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: #ffffff;
+}
+
+.entry-top-links a:hover {
+    background: var(--emerald);
+    color: #ffffff;
+}
