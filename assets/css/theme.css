@@ -2587,7 +2587,8 @@ body {
     border-top: 2px solid var(--gold);
     border-radius: 0 0 10px 10px;
     padding: 38px 42px 34px;
-    margin-top: 48px;
+    max-width: 1100px;
+    margin: 0 auto 54px;
 }
 
 .workstyle-merit h4 {
@@ -2688,7 +2689,11 @@ body {
 
     .workstyle-merit {
         padding: 28px 20px 24px;
-        margin-top: 36px;
+        margin: 0 0 36px;
+    }
+
+    .workstyle-merit h4 {
+        font-size: 1rem;
     }
 
     .workstyle-merit-list {
