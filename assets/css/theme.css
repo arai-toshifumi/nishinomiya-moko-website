@@ -2781,3 +2781,16 @@ body {
     background: var(--emerald);
     color: #ffffff;
 }
+
+/* 仕事の進め方: 社長支給の配色版ロゴ（Notion・Slack・Google Workspace）2026-11-14 */
+.workstyle-ico--logo {
+    background: #ffffff;
+    border: 1px solid var(--paper-line);
+}
+
+.workstyle-ico--logo img {
+    width: 36px;
+    height: 36px;
+    display: block;
+    object-fit: contain;
+}
