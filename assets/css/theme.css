@@ -2794,3 +2794,641 @@ body {
     display: block;
     object-fit: contain;
 }
+
+/* ===== 採用: 給与ハイライト・募集要項の給与表示・キャリアステップ（2026-11-19） =====
+   時給・初任給の引き上げに合わせ、金額を大きな数字で見せる。数字は Playfair Display（他の数値表示と同じ） */
+.recruit-pay {
+    padding: 64px 0 100px;
+    background: #ffffff;
+}
+
+.recruit-pay .recruit-section-title {
+    margin-bottom: 40px;
+}
+
+.pay-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 22px;
+    padding: 6px 18px 6px 6px;
+    border: 1px solid var(--gold-line);
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--emerald);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+}
+
+.pay-badge-up {
+    flex: 0 0 auto;
+    padding: 3px 11px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--emerald-deep);
+    font-family: var(--font-accent);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+}
+
+.pay-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.25fr;
+    gap: 22px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.pay-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px 22px;
+    background: #ffffff;
+    border: 1px solid var(--paper-line);
+    border-top: 3px solid var(--gold);
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(28, 42, 34, 0.06);
+    color: var(--text-main);
+}
+
+.pay-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(28, 42, 34, 0.12);
+}
+
+.pay-kind {
+    margin: 0;
+    color: var(--gold-dark);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+.pay-shift {
+    margin: 6px 0 0;
+    color: var(--emerald);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.pay-amount {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin: 16px 0 4px;
+    color: var(--emerald);
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.pay-unit {
+    margin-right: 4px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.pay-num {
+    font-family: var(--font-accent);
+    font-size: 3.4rem;
+    font-weight: 700;
+    font-variant-numeric: lining-nums;
+    letter-spacing: 0.01em;
+}
+
+.pay-yen {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.pay-sub {
+    margin: 10px 0 0;
+    color: var(--color-text-light);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.pay-sub b {
+    color: var(--emerald);
+    font-size: 1.05rem;
+}
+
+.pay-tag {
+    margin: 8px 0 0;
+    padding: 2px 12px;
+    border: 1px solid var(--gold-line);
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--emerald);
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.7;
+}
+
+.pay-more {
+    margin-top: auto;
+    padding-top: 18px;
+    color: var(--emerald);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.pay-more::after {
+    content: "\00a0\2192";
+}
+
+/* 正社員のカードは深緑×金で区別する */
+.pay-card--full {
+    background: var(--emerald);
+    border-color: var(--emerald);
+    border-top-color: var(--gold);
+    color: #f4f1e8;
+}
+
+.pay-card--full .pay-kind,
+.pay-card--full .pay-amount,
+.pay-card--full .pay-sub b,
+.pay-card--full .pay-more {
+    color: var(--gold);
+}
+
+.pay-card--full .pay-shift {
+    color: #f4f1e8;
+}
+
+.pay-card--full .pay-sub {
+    color: rgba(244, 241, 232, 0.85);
+}
+
+.pay-note {
+    max-width: 1080px;
+    margin: 18px auto 0;
+    color: var(--color-text-light);
+    font-size: 0.75rem;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* 募集要項（正社員）: 月給を大きく＋内訳の帯グラフ */
+.req-pay {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin: 4px 0 0;
+    color: var(--emerald);
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.req-pay-unit {
+    margin-right: 4px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.req-pay-num {
+    font-family: var(--font-accent);
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-variant-numeric: lining-nums;
+}
+
+.req-pay-yen {
+    font-weight: 700;
+}
+
+.req-pay-cap {
+    margin: 6px 0 14px;
+    color: var(--color-text-light);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+.pay-breakdown {
+    display: flex;
+    gap: 2px;
+    height: 12px;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.pb-seg {
+    display: block;
+    min-width: 4px;
+}
+
+.pb-base { background: var(--emerald); }
+.pb-role { background: #4f8a6b; }
+.pb-ot { background: var(--gold); }
+.pb-night { background: #e6d08a; }
+
+.pay-breakdown-list {
+    margin: 10px 0 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.pay-breakdown-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--paper-line);
+    font-size: 0.9rem;
+}
+
+.pay-breakdown-list li:last-child {
+    border-bottom: none;
+}
+
+.pb-dot {
+    flex: 0 0 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+}
+
+.pb-name {
+    flex: 1 1 auto;
+}
+
+.pb-name small {
+    display: block;
+    color: var(--color-text-light);
+    font-size: 0.72rem;
+}
+
+.pay-breakdown-list b {
+    color: var(--emerald);
+    white-space: nowrap;
+}
+
+.req-pay-note {
+    margin: 8px 0 0;
+    color: var(--color-text-light);
+    font-size: 0.75rem;
+    line-height: 1.75;
+}
+
+.req-pay-extra {
+    margin: 8px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* 募集要項（アルバイト）: 時間帯×曜日の時給表 */
+.wage-table {
+    width: 100%;
+    margin: 6px 0 0;
+    border: 1px solid var(--paper-line);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+.wage-table th,
+.wage-table td {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--paper-line);
+    text-align: center;
+}
+
+.wage-table tbody tr:last-child th,
+.wage-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.wage-table thead th {
+    padding: 8px;
+    background: var(--emerald);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.wage-table thead th.is-holiday {
+    background: var(--gold-dark);
+}
+
+.wage-table-corner {
+    opacity: 0.8;
+}
+
+.wage-table tbody th {
+    padding-left: 14px;
+    background: var(--color-gray);
+    color: var(--emerald);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.wage-table tbody th span {
+    display: block;
+    margin-top: 3px;
+    color: var(--color-text-light);
+    font-size: 0.72rem;
+    font-weight: 500;
+}
+
+.wage-table td {
+    color: var(--text-main);
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.wage-table td b {
+    margin-right: 2px;
+    color: var(--emerald);
+    font-family: var(--font-accent);
+    font-size: 1.6rem;
+    font-variant-numeric: lining-nums;
+}
+
+.wage-table td.is-holiday {
+    background: rgba(212, 175, 55, 0.08);
+}
+
+.wage-table td.is-holiday b {
+    color: var(--gold-dark);
+}
+
+.wage-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 0;
+    padding: 0;
+}
+
+.wage-tags li {
+    padding: 3px 12px;
+    border: 1px solid var(--gold-line);
+    border-radius: 999px;
+    background: var(--cream);
+    color: var(--emerald);
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+/* 募集要項（アルバイト）: 収入例 */
+.income-ex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.income-ex-item {
+    padding: 12px 14px;
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+    background: var(--color-gray);
+    line-height: 1.4;
+}
+
+.income-ex-case {
+    margin: 0;
+    color: var(--emerald);
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.income-ex-case span {
+    display: block;
+    color: var(--color-text-light);
+    font-size: 0.72rem;
+    font-weight: 500;
+}
+
+.income-ex-amt {
+    margin: 6px 0 0;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.income-ex-amt b {
+    margin: 0 2px;
+    color: var(--emerald);
+    font-family: var(--font-accent);
+    font-size: 1.45rem;
+    font-variant-numeric: lining-nums;
+}
+
+.income-ex-note {
+    margin: 8px 0 0;
+    color: var(--color-text-light);
+    font-size: 0.72rem;
+    line-height: 1.7;
+}
+
+/* キャリアステップ（アルバイト → 正社員登用 → リーダー） */
+.career-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+.career-step {
+    position: relative;
+    padding: 24px 16px 22px;
+    background: #ffffff;
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(28, 42, 34, 0.05);
+    text-align: center;
+}
+
+.career-step + .career-step::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -24px;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.career-step.is-key {
+    background: var(--emerald);
+    border-color: var(--emerald);
+    color: #f4f1e8;
+}
+
+.cs-no {
+    margin: 0;
+    color: var(--gold-dark);
+    font-family: var(--font-accent);
+    font-variant-numeric: lining-nums;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+.cs-role {
+    margin: 6px 0 0;
+    color: var(--emerald);
+    font-family: var(--font-serif-jp);
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.cs-role small {
+    display: block;
+    margin-top: 2px;
+    color: var(--color-text-light);
+    font-family: var(--font-base);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.cs-pay {
+    margin: 12px 0 0;
+    color: var(--emerald);
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.cs-pay span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--color-text-light);
+    font-size: 0.72rem;
+    font-weight: 500;
+}
+
+.cs-pay b {
+    margin: 0 2px;
+    font-family: var(--font-accent);
+    font-size: 2rem;
+    font-variant-numeric: lining-nums;
+}
+
+.cs-desc {
+    margin: 10px 0 0;
+    color: var(--color-text-light);
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.is-key .cs-no,
+.is-key .cs-pay {
+    color: var(--gold);
+}
+
+.is-key .cs-role {
+    color: #ffffff;
+}
+
+.is-key .cs-role small,
+.is-key .cs-pay span {
+    color: rgba(244, 241, 232, 0.75);
+}
+
+.is-key .cs-desc {
+    color: rgba(244, 241, 232, 0.85);
+}
+
+@media (max-width: 1024px) {
+    .pay-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 720px;
+    }
+
+    .pay-card--full {
+        grid-column: 1 / -1;
+    }
+
+    .wage-table td b {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .recruit-pay {
+        padding: 44px 0 64px;
+    }
+
+    .pay-badge {
+        font-size: 0.8rem;
+        text-align: left;
+    }
+
+    .pay-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .pay-card {
+        padding: 24px 16px 18px;
+    }
+
+    .pay-num {
+        font-size: 2.9rem;
+    }
+
+    .pay-note {
+        text-align: left;
+    }
+
+    .req-pay-num {
+        font-size: 2.2rem;
+    }
+
+    .wage-table th,
+    .wage-table td {
+        padding: 10px 4px;
+    }
+
+    .wage-table tbody th {
+        padding-left: 10px;
+        font-size: 0.88rem;
+    }
+
+    .wage-table td {
+        font-size: 0.72rem;
+    }
+
+    .wage-table td b {
+        font-size: 1.3rem;
+    }
+
+    .career-steps {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        max-width: 420px;
+    }
+
+    .career-step + .career-step::before {
+        top: -22px;
+        left: 50%;
+        transform: translateX(-50%) rotate(135deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .income-ex {
+        grid-template-columns: 1fr;
+    }
+}
