@@ -108,6 +108,34 @@
                 <button type="button" data-filter="採用">採用</button>
                 <button type="button" data-filter="地域・防災">地域・防災</button>
             </div>
+            <!-- 2026-11-19 掲載: アルバイト・パートの時給の引き上げ（早番 1,200→1,310円・遅番 1,300→1,410円、土日祝＋100円・22時以降25%UP は継続）と正社員の初任給（月給291,700円〜）。
+                 時給表は採用ページと同じ .wage-table を使う。金額を変えるときは採用ページ（/recruit/）と合わせる -->
+            <article class="news-feature" id="news-wage-up" data-category="採用">
+                <div class="news-feature-head">
+                    <span class="news-date">2026.11.19</span>
+                    <span class="news-tag tag-recruit">採用</span>
+                </div>
+                <h2 class="news-feature-title">アルバイト・パートの時給を引き上げました</h2>
+                <div class="news-feature-body">
+                    <p>モコ鈴蘭台店・モコ田尾寺店のアルバイト・パートの時給を、早番・遅番ともに110円引き上げました。両店共通の新しい時給は次のとおりです。</p>
+                    <table class="wage-table">
+                        <thead>
+                            <tr><th scope="col"><span class="wage-table-corner">時給</span></th><th scope="col">平日</th><th scope="col" class="is-holiday">土日祝</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><th scope="row">早番<span>9:15〜16:45</span></th><td><b>1,310</b>円〜</td><td class="is-holiday"><b>1,410</b>円〜</td></tr>
+                            <tr><th scope="row">遅番<span>16:15〜23:30</span></th><td><b>1,410</b>円〜</td><td class="is-holiday"><b>1,510</b>円〜</td></tr>
+                        </tbody>
+                    </table>
+                    <ul class="wage-tags">
+                        <li>22時以降は時給25%UP</li>
+                        <li>昇給あり</li>
+                    </ul>
+                    <p>週1日・1日3時間から働けます。パチンコ店で働くのが初めての方も、入社後の研修で一から覚えられますので、安心してご応募ください。</p>
+                    <p>あわせて、正社員の初任給も月給291,700円〜に引き上げました。アルバイトから正社員への登用も行っています。</p>
+                    <p class="news-feature-cta"><a href="/recruit/#pay" class="btn-map">給与・募集要項を見る</a></p>
+                </div>
+            </article>
             <!-- 2026-10-27 掲載: AED 設置・まちかど救急ステーション登録・普通救命コース（正社員全員）。一次情報は Notion「HP掲載用資料｜AED設置・救命講習・まちかど救急ステーション」 -->
             <article class="news-feature" id="news-aed" data-category="地域・防災">
                 <div class="news-feature-head">
@@ -162,6 +190,11 @@
             <!-- お知らせ一覧（新しい順）。トップページはこの一覧と上の注目記事を自動で取り込むので、編集はこのファイルだけでよい。
                  本文付きの記事は上の news-feature に置き、一覧の行からは #id でリンクする -->
             <div class="news-list">
+                <article class="news-item" data-category="採用">
+                    <span class="news-date">2026.11.19</span>
+                    <span class="news-tag tag-recruit">採用</span>
+                    <a href="#news-wage-up" class="news-title">アルバイト・パートの時給を引き上げました</a>
+                </article>
                 <article class="news-item" data-category="地域・防災">
                     <span class="news-date">2026.10.27</span>
                     <span class="news-tag tag-disaster">地域・防災</span>

@@ -3432,3 +3432,14 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* お知らせ記事の中の時給表（2026-11-19 時給の引き上げ。採用ページの .wage-table を流用） */
+.news-feature .wage-table {
+    max-width: 560px;
+    margin: 8px auto 0;
+}
+
+.news-feature .wage-tags {
+    justify-content: center;
+    margin-bottom: 26px;
+}
