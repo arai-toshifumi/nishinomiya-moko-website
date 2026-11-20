@@ -3451,3 +3451,99 @@ body {
     font-size: 0.78rem;
     line-height: 1.8;
 }
+
+/* 動画で見る職場（2026-11-20 採用ページ #movie）。配信元が 640×360 のため、1本あたりの幅は 520px 程度までに抑える */
+.movie-lead {
+    max-width: 780px;
+    margin: 0 auto 44px;
+    text-align: center;
+    font-size: 0.98rem;
+    word-break: auto-phrase;
+    text-wrap: balance;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 520px));
+    justify-content: center;
+    gap: 32px;
+}
+
+.movie-card {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--paper-line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(11, 36, 24, 0.06);
+}
+
+.movie-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-bottom: 3px solid var(--gold);
+}
+
+.movie-frame video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #000;
+}
+
+.movie-card figcaption {
+    padding: 18px 22px 22px;
+}
+
+.movie-title {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin: 0 0 8px;
+    font-family: var(--font-serif-jp);
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: var(--emerald);
+}
+
+.movie-len {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--gold-dark);
+    border: 1px solid var(--gold-line);
+    border-radius: 999px;
+    padding: 1px 10px;
+    letter-spacing: 0.04em;
+}
+
+.movie-desc {
+    margin: 0;
+    word-break: auto-phrase;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--color-text-light);
+}
+
+@media (max-width: 768px) {
+    .movie-lead {
+        font-size: 0.92rem;
+        margin-bottom: 30px;
+    }
+
+    .movie-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    .movie-card figcaption {
+        padding: 14px 16px 18px;
+    }
+
+    .movie-title {
+        font-size: 1.02rem;
+    }
+}
