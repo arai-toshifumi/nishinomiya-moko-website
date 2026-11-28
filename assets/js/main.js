@@ -166,6 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Fade-in Animation on Scroll
+    // 画面の下端から 80px 入ったところで表示する（threshold は 0）。
+    // 以前は「要素の 10% が見えたら」としていたが、本文が画面の10倍以上に長いページでは
+    // 10% が一度に画面へ入りきらず、スマホで本文が表示されなくなったため変更した（2026-11-28）。
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -173,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -80px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
