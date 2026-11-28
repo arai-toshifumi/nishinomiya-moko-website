@@ -4518,3 +4518,33 @@ body {
         text-align: left;
     }
 }
+
+/* ===== 会社情報: DX への取り組み（2026-11） ===== */
+#dx {
+    scroll-margin-top: var(--header-height);
+}
+
+.dx-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin: 0 0 22px;
+}
+
+.workstyle-tm.dx-tm {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .dx-links .btn-map {
+        flex: 1 1 100%;
+        text-align: center;
+        padding: 12px 12px;
+        font-size: 0.86rem;
+    }
+
+    .workstyle-tm.dx-tm {
+        text-align: left;
+    }
+}

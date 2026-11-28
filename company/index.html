@@ -220,8 +220,30 @@
         </div>
     </section>
 
-    <!-- Characters -->
-    <section class="section-padding bg-white">
+    <!-- DX（2026-11-28 追加）: 社内の仕組みの図。採用ページ「社員の仕事の進め方」・事業紹介と同じ画像を使う。
+         図や文言を変えるときは3ページ（/recruit/#workstyle・/business/#dx・ここ）を合わせる。
+         決まり: Manus の名前は出さず「社員全員が使える AI エージェント」と書く。商標の脚注を付ける -->
+    <section class="section-padding bg-white" id="dx">
+        <div class="container fade-in">
+            <h2 class="section-title">DX への取り組み</h2>
+            <p class="workstyle-lead">西宮モコは、連絡・知識・ファイル・数値を店舗や個人の中に閉じず、Notion を中心に会社全体で共有する仕組みで仕事をしています。Slack、Google Workspace、社員全員が使える AI エージェントをつなぎ、資料づくりや集計、会計・労務の事務にかかる手間を減らして、その分をお客様に向き合う時間にあてています。</p>
+            <figure class="workstyle-figure">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/img/workstyle-map-mobile-2026-11-14.webp" width="1152" height="2048">
+                    <img src="/assets/img/workstyle-map-2026-11-14.webp" width="2048" height="1152" alt="Notion を中心に、Slack・Google Workspace・freee（会計・人事労務 API 連携）がつながり、社員全員が使える AI エージェントからデザイン生成（ChatGPT・Seedance・CapCut）、月間の営業管理資料、業界ニュース・新台速報のまとめ資料へ矢印が伸びている図。最下段はシフトの自動作成（Google フォームに希望を入力 → Claude Code が集計・配置 → シフト表が自動でできあがり）" loading="lazy">
+                </picture>
+                <figcaption>Notion を中心に、連絡・ファイル・AI・会計労務・シフト作成までがひとつにつながっています。</figcaption>
+            </figure>
+            <p class="dx-links">
+                <a href="/business/#dx" class="btn-map">事業紹介で詳しく見る</a>
+                <a href="/recruit/#workstyle" class="btn-map">社員の仕事の進め方を見る（採用情報）</a>
+            </p>
+            <p class="workstyle-tm dx-tm">※ Slack、Notion、Google Workspace、ChatGPT、Claude、Seedance、CapCut、freee は各社の商標または登録商標です。</p>
+        </div>
+    </section>
+
+    <!-- Characters（2026-11-28 直前に DX の区画〔白地〕が入ったため、背景を bg-gray に変更） -->
+    <section class="section-padding bg-gray">
         <div class="container fade-in">
             <h2 class="section-title">オリジナルキャラクター</h2>
             <div class="character-banner">
@@ -232,8 +254,8 @@
         </div>
     </section>
 
-    <!-- Access -->
-    <section class="section-padding bg-gray">
+    <!-- Access（2026-11-28 交互の配色を保つため bg-white に変更） -->
+    <section class="section-padding bg-white">
         <div class="container fade-in">
             <h2 class="section-title">アクセス</h2>
             <div class="content-block" style="text-align:center;">
