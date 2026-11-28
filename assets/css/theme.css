@@ -4415,3 +4415,106 @@ body {
         font-size: 1.5rem;
     }
 }
+
+/* ===== 事業紹介: 社内の DX の図と、健全な遊技環境への導線（2026-11） ===== */
+.biz-dx {
+    max-width: 1180px;
+    margin: 64px auto 0;
+    scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.biz-dx-title {
+    font-family: var(--font-serif-jp);
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: var(--emerald);
+    text-align: center;
+    margin: 0 0 26px;
+}
+
+.biz-dx .workstyle-figure {
+    margin-bottom: 36px;
+}
+
+.biz-dx-points {
+    list-style: none;
+    margin: 0 auto 34px;
+    padding: 0;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.biz-dx-points li {
+    background: #ffffff;
+    border: 1px solid var(--paper-line);
+    border-top: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 20px 22px;
+}
+
+.biz-dx-points strong {
+    display: block;
+    font-family: var(--font-serif-jp);
+    font-size: 1.05rem;
+    color: var(--emerald);
+    margin-bottom: 8px;
+}
+
+.biz-dx-points span {
+    display: block;
+    font-size: 0.88rem;
+    line-height: 1.9;
+}
+
+.biz-dx-link {
+    text-align: center;
+    margin: 0 0 22px;
+}
+
+.biz-dx .workstyle-tm {
+    text-align: center;
+}
+
+.content-block.biz-rg {
+    margin: 80px auto 0;
+    scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
+.content-block p.biz-rg-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 26px 0 0;
+}
+
+@media (max-width: 768px) {
+    .biz-dx {
+        margin-top: 44px;
+    }
+
+    .biz-dx-title {
+        font-size: 1.12rem;
+    }
+
+    .biz-dx-points {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .content-block.biz-rg {
+        margin-top: 56px;
+    }
+
+    .content-block p.biz-rg-links .btn-map {
+        flex: 1 1 100%;
+        text-align: center;
+        padding: 12px 12px;
+        font-size: 0.86rem;
+    }
+
+    .biz-dx .workstyle-tm {
+        text-align: left;
+    }
+}
