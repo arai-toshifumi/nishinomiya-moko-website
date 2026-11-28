@@ -3552,3 +3552,162 @@ body {
         font-size: 1.02rem;
     }
 }
+
+/* ===== 社会貢献活動（あまり玉支援・2026-11） =====
+   /community-disaster/contribution/ とお知らせの記事で共用する。 */
+
+.text-link {
+    color: var(--color-gold-dark);
+    font-weight: 700;
+}
+
+/* 説明文＋ご案内パネル（PC は横並び、スマホは縦並び） */
+.support-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 40px;
+    align-items: start;
+}
+
+.support-intro-figure {
+    margin: 0;
+}
+
+.support-intro-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(28, 42, 34, 0.14);
+}
+
+.support-intro-figure figcaption,
+.support-photos figcaption {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-top: 8px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* 活動実績の表（見出し行つき・3列） */
+.spec-table.support-record {
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+.spec-table.support-record th {
+    width: auto;
+    white-space: nowrap;
+}
+
+.support-heading {
+    font-family: var(--font-serif-jp);
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--emerald);
+    margin: 0 0 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gold-line);
+}
+
+/* 写真（横長1枚＋縦長3枚） */
+.support-photos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin: 8px 0 28px;
+}
+
+.support-photos figure {
+    margin: 0;
+}
+
+.support-photos figure.is-wide {
+    grid-column: 1 / -1;
+}
+
+.support-photos img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 6px;
+}
+
+.support-photos figure:not(.is-wide) img {
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.support-message {
+    font-family: var(--font-serif-jp);
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+    line-height: 2;
+    color: var(--emerald);
+    text-align: center !important;
+    padding: 18px 0;
+    margin-top: 30px;
+    border-top: 1px solid var(--gold-line);
+    border-bottom: 1px solid var(--gold-line);
+}
+
+@media (max-width: 768px) {
+    .support-intro {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .support-intro-figure {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    /* 表はスマホでは1件ずつのカード表示にする */
+    .spec-table.support-record thead {
+        display: none;
+    }
+
+    .spec-table.support-record,
+    .spec-table.support-record tbody,
+    .spec-table.support-record tr,
+    .spec-table.support-record td {
+        display: block;
+        width: 100%;
+    }
+
+    .spec-table.support-record td {
+        padding: 12px 18px;
+    }
+
+    .spec-table.support-record td::before {
+        content: attr(data-label);
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: var(--color-text-light);
+        margin-bottom: 2px;
+    }
+
+    .support-heading {
+        font-size: 1.05rem;
+    }
+
+    .support-message {
+        font-size: 1.02rem;
+        letter-spacing: 0.04em;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* 縦長3枚は「2枚並び＋最後の1枚を大きく」 */
+    .support-photos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .support-photos figure:last-child {
+        grid-column: 1 / -1;
+    }
+}
